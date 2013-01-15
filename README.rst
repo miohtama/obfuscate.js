@@ -4,12 +4,13 @@ Introduction
 -------------
 
 Obfuscate.js is a Javascript console tool which obfuscates the text on the web page
-hiding sensitive information. The purpose is to be able to easily make
-shareable screenshots for collaborative debugging, examples, demos and so on,
-so that you do not need to manually blur parts of the screen shot in Photoshop, GIMP,
-etc. image manipulation program.
+hiding sensitive information. The purpose of this tool is to be able to easily make
+shareable screenshots for collaborative debugging, examples, demos and so on.
+You no longer need to manually blur parts of the screen shot in Photoshop, GIMP,
+etc. image manipulation program, saving your precious time and making sharing
+screenshots easier.
 
-* You invoke Obfuscate.js script from the Javascript console of your web browser
+* You invoke Obfuscate.js script from a bookmark or the Javascript console of your web browser
 
 * Obfuscate.js obfuscates the whole page or parts of it
 
@@ -17,20 +18,37 @@ etc. image manipulation program.
 
 * Post to a public forum, blog or other media
 
-Usage
------
+Advanced usage
+---------------
 
 Obfuscate.js can walk through the whole page (``<body>``) or arbitary bit chosen by CSS selectors.
 
-Copy-paste line of text from `obfuscate.min.js <https://github.com/miohtama/obfuscate.js/blob/master/obfuscate.min.js>`_ to your Javascript console.
+Open the page with sensitive information in your web browser.
+
+Open Javascript console. Copy-paste line of text from `obfuscate.min.js <https://github.com/miohtama/obfuscate.js/blob/master/obfuscate.min.js>`_ to your Javascript console.
+
+.. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/console.png
+    :width: 500px
+
+In this point you have the orignal page still with sensitive information
+
+.. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/sensitive.png
+    :width: 500px
+
 
 After this you can obfuscate a part of a page by writing the command in the console::
 
     obfuscate("#waffle-grid-container"); // Obfuscate contents of Google Spreadsheet
 
+.. image :: https://raw.github.com/miohtama/obfuscate.js/master/media/full.png
+    :width: 500px
+
 Or simply obfuscate all text the whole page::
 
     obfuscate(); // Obfuscate all the text on the page
+
+.. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/part.png
+    :width: 500px
 
 Other
 ------
@@ -38,15 +56,17 @@ Other
 * There is some heurestics to keep the text similar looking to the orignal text i.e.
   retaining all whitespaces and punctuation in place
 
-* Vanilla Javascript
+* It's vanilla Javascript
 
 * Tested with Firefox, Chrome
-
 
 Future enhanchement potential
 -------------------------------
 
-* Make a logic which keeps text length intact (replaces characters with characters of same width)
+* Make a logic which keeps text length intact (replaces words with the words of same width)
+
+* Create a bookmarklet out of it. Curretly one cannot execute bookmarklet code (bookmark.js)
+  because some sort of access error with Javascript ``window`` object
 
 Author
 ------

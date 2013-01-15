@@ -135,6 +135,11 @@
 
 
     // export
-    window.obfuscate = obfuscate;
+    if(window) {
+        window.obfuscate = obfuscate;
+    } else {
+        // Execute as bookmarklet
+        obfuscate();
+    }
 
 })();
