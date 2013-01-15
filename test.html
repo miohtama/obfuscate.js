@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+        <style>
+            .node1 {
+                background: #ffe;
+            }
+
+            .node2 {
+                background: #efe;
+            }
+        </style>
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+
+            <h1>Obfuscate text demo</h1>
+
+            <p>See how our text mangler works</p>
+
+            <h2>Orignal</h2>
+
+            <div id="orignal">
+                <p class="node1">
+                    Tämä on testiteksti. This is test text. Here we have a PIN code: 1234.
+                </p>
+
+                <p class="node2">
+                    ...&lt;Further text goes here&gt;...
+                </p>
+            </div>
+
+            <h2>Obfuscated</h2>
+
+            <div id="obfuscated">
+            </div>
+
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+        <script src="obfuscate.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $("#orignal").children().clone().appendTo("#obfuscated");
+                obfuscate("#obfuscated");
+            });
+        </script>
+
+
+    </body>
+</html>
