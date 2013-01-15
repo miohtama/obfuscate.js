@@ -18,7 +18,7 @@ screenshots easier.
 
 * Post to a public forum, blog or other media
 
-Advanced usage
+Usage
 ---------------
 
 Obfuscate.js can walk through the whole page (``<body>``) or arbitary bit chosen by CSS selectors.
@@ -71,5 +71,5 @@ Future enhanchement potential
 Author
 ------
 
-`Mikko Ohtamaa <http://opensourcehacker.com>`_ (`Twitter <http://twitter.com/moo9000>`_)
+`Mikko Ohtamaa <http://opensourcehacker.com>`_ (`Twitter <http://twitter.com/moo9000>`_, `Facebook <https://www.facebook.com/pages/Open-Source-Hacker/181710458567630>`_)
 
