@@ -10,13 +10,15 @@ You no longer need to manually blur parts of the screen shot in Photoshop, GIMP,
 etc. image manipulation program, saving your precious time and making sharing
 screenshots easier.
 
-* You invoke Obfuscate.js script from a bookmark or the Javascript console of your web browser
+* You invoke Obfuscate.js script from the Javascript console of your web browser
 
-* Obfuscate.js obfuscates the whole page or parts of it
+* Obfuscate.js obfuscates the whole web page or parts of it, replacing all text on the page
+  with gibberish
 
 * Take a screenshot
 
-* Post to a public forum, blog or other media
+* Post the screenshot to a public forum, blog or other media where you could not share the information
+  and show the symptoms otherwise
 
 Usage
 ---------------
@@ -60,7 +62,7 @@ Other
 
 * Tested with Firefox, Chrome
 
-Future enhanchement potential
+Future enhanchements
 -------------------------------
 
 * Make a logic which keeps text length intact (replaces words with the words of same width)
