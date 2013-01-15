@@ -28,7 +28,7 @@ Open the page with sensitive information in your web browser.
 Open Javascript console. Copy-paste line of text from `obfuscate.min.js <https://github.com/miohtama/obfuscate.js/blob/master/obfuscate.min.js>`_ to your Javascript console.
 
 .. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/console.png
-    :width: 500px
+    :width: 500
 
 In this point you have the orignal page still with sensitive information
 
