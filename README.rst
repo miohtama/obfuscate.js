@@ -40,14 +40,14 @@ After this you can obfuscate a part of a page by writing the command in the cons
 
     obfuscate("#waffle-grid-container"); // Obfuscate contents of Google Spreadsheet
 
-.. image :: https://raw.github.com/miohtama/obfuscate.js/master/media/full.png
+.. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/part.png
     :width: 500px
 
 Or simply obfuscate all text the whole page::
 
     obfuscate(); // Obfuscate all the text on the page
 
-.. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/part.png
+.. image :: https://raw.github.com/miohtama/obfuscate.js/master/media/full.png
     :width: 500px
 
 Other
