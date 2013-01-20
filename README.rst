@@ -45,7 +45,11 @@ After this you can obfuscate a part of a page by writing the command in the cons
 .. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/part.png
     :width: 500px
 
-Or simply obfuscate all text the whole page::
+To obfuscate the content of Google Apps document::
+
+    obfuscate(".kix-paginateddocumentplugin")
+
+Or simply obfuscate all text the whole web page::
 
     obfuscate(); // Obfuscate all the text on the page
 
