@@ -82,5 +82,6 @@ Authors
 -------
 
 `Mikko Ohtamaa <http://opensourcehacker.com>`_ (`Twitter <http://twitter.com/moo9000>`_, `Facebook <https://www.facebook.com/pages/Open-Source-Hacker/181710458567630>`_)
-`Neil Craig <http://www.thedotproduct.org>` _ (`Twitter <http://twitter.com/tdp_org>` (amendments to allow CSS styles)
+
+`Neil Craig <http://www.thedotproduct.org>` _ (`Twitter <http://twitter.com/tdp_org>`) (amendments to allow CSS styles)
 
