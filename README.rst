@@ -13,7 +13,7 @@ screenshots easier.
 * You invoke Obfuscate.js script from the Javascript console of your web browser
 
 * Obfuscate.js obfuscates the whole web page or parts of it, replacing all text on the page
-  with gibberish
+  with gibberish or now optionally altering it via one or more CSS styles e.g. blur, setting background colour the same as font colour etc. (note that obfuscate.js will apply browser vendor prefixes where necessary)
 
 * Take a screenshot
 
@@ -32,7 +32,7 @@ Open Javascript console. Copy-paste line of text from `obfuscate.min.js <https:/
 .. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/console.png
     :width: 500
 
-In this point you have the orignal page still with sensitive information
+In this point you have the original page still with sensitive information
 
 .. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/sensitive.png
     :width: 500px
@@ -40,7 +40,11 @@ In this point you have the orignal page still with sensitive information
 
 After this you can obfuscate a part of a page by writing the command in the console::
 
+Replace text::
     obfuscate("#waffle-grid-container"); // Obfuscate contents of Google Spreadsheet
+
+Amend via styling (blur and setting font colour red)::
+	obfuscate("#waffle-grid-container", [["filter","blur(1em)"],["color","red"]); // Obfuscate contents of Google Spreadsheet
 
 .. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/part.png
     :width: 500px
@@ -59,23 +63,24 @@ Or simply obfuscate all text the whole web page::
 Other
 ------
 
-* There is some heurestics to keep the text similar looking to the orignal text i.e.
+* There is some heurestics to keep the text similar looking to the original text i.e.
   retaining all whitespaces and punctuation in place
 
 * It's vanilla Javascript
 
 * Tested with Firefox, Chrome
 
-Future enhanchements
+Future enhancements
 -------------------------------
 
 * Make a logic which keeps text length intact (replaces words with the words of same width)
 
-* Create a bookmarklet out of it. Curretly one cannot execute bookmarklet code (bookmark.js)
+* Create a bookmarklet out of it. Currently one cannot execute bookmarklet code (bookmark.js)
   because some sort of access error with Javascript ``window`` object
 
-Author
-------
+Authors
+-------
 
 `Mikko Ohtamaa <http://opensourcehacker.com>`_ (`Twitter <http://twitter.com/moo9000>`_, `Facebook <https://www.facebook.com/pages/Open-Source-Hacker/181710458567630>`_)
+`Neil Craig <http://www.thedotproduct.org>` _ (`Twitter <http://twitter.com/tdp_org>` (amendments to allow CSS styles)
 
