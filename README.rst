@@ -40,11 +40,7 @@ In this point you have the original page still with sensitive information
 
 After this you can obfuscate a part of a page by writing the command in the console::
 
-Replace text::
     obfuscate("#waffle-grid-container"); // Obfuscate contents of Google Spreadsheet
-
-Amend via styling (blur and setting font colour red)::
-	obfuscate("#waffle-grid-container", [["filter","blur(1em)"],["color","red"]); // Obfuscate contents of Google Spreadsheet
 
 .. image :: https://github.com/miohtama/obfuscate.js/raw/master/media/part.png
     :width: 500px
@@ -58,6 +54,13 @@ Or simply obfuscate all text the whole web page::
     obfuscate(); // Obfuscate all the text on the page
 
 .. image :: https://raw.github.com/miohtama/obfuscate.js/master/media/full.png
+    :width: 500px
+
+
+Amend via styling (blur and setting font colour red)::
+	obfuscate("a", [["filter","blur(1em)"],["color","red"]);
+
+.. image :: https://github.com/neilstuartcraig/obfuscate.js/obfuscate-blur1.png
     :width: 500px
 
 Other
