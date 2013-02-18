@@ -116,24 +116,128 @@
         }
     }
 
+
+
+	
+	
     /**
      * Obfuscates a target selection.
      *
      * If no target is given, obfuscate all the text on the page.
      */
-    function obfuscate(target) {
+    function obfuscate(target, stylesArray)
+	{
 
-        if(!target) {
+        if(!target)
+		{
             target = "body";
         }
+		
+		// If the user has specified one or more styles to apply
+		if(typeof(stylesArray)=="object")
+		{
+			// obtain the correct venbdor prefix for the browser we're executing in
+			var prefix=getVendorPrefix();
+			
+			// if we have a prefix for this browser
+			if(prefix)
+			{
+				// create a test HTML element to verify with (this element will never be added to the DOM)
+				var testElement=document.createElement("div"), res=false;
+				
+				// loop through the supplied user style(s)
+				for(var i=0; i<stylesArray.length; i++)
+				{
+					// try applying a non-prefixed style first of all
+					testElement.style[stylesArray[i][0]]=stylesArray[i][1];
+					
+					// test whether the non-prefixed style applied successfully (it'll return the style) or not (it'll return nothing)
+					res=testElement.style[stylesArray[i][0]];
+
+					// if no prefix has been applied but we need one...
+					if(stylesArray[i][0].indexOf(prefix)!=0 && !res)
+					{
+						// ...add the prefix to the user supplied style
+						stylesArray[i][0]=prefix+ucfirst(stylesArray[i][0]);
+					}
+
+				}
+			}
+		}
+		else
+		{
+			stylesArray=false;
+		}
 
         var elems = document.querySelectorAll(target);
-        for(var i=0; i<elems.length; i++) {
-            walk(elems[i]);
+        for(var i=0; i<elems.length; i++)
+		{
+			if(stylesArray)
+			{
+				for(var j=0; j<stylesArray.length; j++)
+				{					
+					elems[i].style[stylesArray[j][0]]=stylesArray[j][1];
+				}
+			}
+			else
+			{
+				walk(elems[i]);
+			}
         }
     }
+	
+	
+	
+	/*
+	 * getVendorPrefix() is taken and only very slightly adapted from http://lea.verou.me/2009/02/find-the-vendor-prefix-of-the-current-browser/ by Lea Verou
+	 * 
+	 */
+	function getVendorPrefix()
+	{
+		var regex = /^(Moz|Webkit|Khtml|O|ms|Icab)(?=[A-Z])/;
 
+		var someScript = document.getElementsByTagName('script')[0];
 
+		for(var prop in someScript.style)
+		{
+			if(regex.test(prop))
+			{
+				// test is faster than match, so it's better to perform
+				// that on the lot and match only when necessary
+				return prop.match(regex)[0].toLowerCase();
+			}
+
+		}
+
+		// Nothing found so far? Webkit does not enumerate over the CSS properties of the style object.
+		// However (prop in style) returns the correct value, so we'll have to test for
+		// the precence of a specific property
+		if('WebkitOpacity' in someScript.style) 
+			return 'webkit';
+		
+		if('KhtmlOpacity' in someScript.style)
+			return 'khtml';
+
+		return '';
+	}
+	
+	/*
+	 * ucfirst taken directly from http://phpjs.org/functions/ucfirst/ credits below
+	 */
+	function ucfirst(str)
+	{
+		// http://kevin.vanzonneveld.net
+		// +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+		// +   bugfixed by: Onno Marsman
+		// +   improved by: Brett Zamir (http://brett-zamir.me)
+		// *     example 1: ucfirst('kevin van zonneveld');
+		// *     returns 1: 'Kevin van zonneveld'
+		str += '';
+		var f = str.charAt(0).toUpperCase();
+		return f + str.substr(1);
+	}
+	
+	
     // export
     if(window) {
         window.obfuscate = obfuscate;
