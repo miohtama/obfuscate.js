@@ -88,3 +88,8 @@ Authors
 
 `Neil Craig <http://www.thedotproduct.org>`_ (`Twitter <http://twitter.com/tdp_org>`_) (amendments to allow CSS styles)
 
+Credits
+-------
+`Lea Verou <http://lea.verou.me/>`_ `getVendorPrefix() <http://lea.verou.me/2009/02/find-the-vendor-prefix-of-the-current-browser/>` (a few very minor modifications made)
+`PHPJS <http://phpjs.org/>_ `ucfirst() <http://phpjs.org/functions/ucfirst/>` (used with no modifications)
+
