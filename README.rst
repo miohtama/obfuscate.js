@@ -90,7 +90,7 @@ Authors
 
 Credits
 -------
-`Lea Verou <http://lea.verou.me/>`_ `getVendorPrefix() <http://lea.verou.me/2009/02/find-the-vendor-prefix-of-the-current-browser/>`_ (a few very minor modifications made)
+`Lea Verou <http://lea.verou.me/>`_: `getVendorPrefix() <http://lea.verou.me/2009/02/find-the-vendor-prefix-of-the-current-browser/>`_ (a few very minor modifications made)
 
-`PHPJS <http://phpjs.org/>`_ `ucfirst() <http://phpjs.org/functions/ucfirst/>`_ (used with no modifications)
+`PHPJS <http://phpjs.org/>`_: `ucfirst() <http://phpjs.org/functions/ucfirst/>`_ (used with no modifications)
 
