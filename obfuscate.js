@@ -16,6 +16,8 @@
 
     var symbolpool = "-.,;:_ |<>*+(){}";
 
+    var numericpresuffixpool = "%$¥";
+
     // http://stackoverflow.com/a/3843677/315168
     function isDigit(val) {
       return String(+val).charAt(0) == val;
@@ -32,6 +34,24 @@
     // Match some common symbols we do not want to alter
     function isSymbol(char) {
         return symbolpool.indexOf(char) >= 0;
+    }
+
+    // Match some common symbols we do not want to alter if they appear as a suffix or prefix for numbers
+    function isNumericPreSuffix(char) {
+        return numericpresuffixpool.indexOf(char) >= 0;
+    }
+
+    // Match numeric "words"
+    function isNumeric(word) {
+        if (isNumericPreSuffix(word.charAt(0))) {
+            word = word.substr(1);
+        }
+        if (isNumericPreSuffix(word.charAt(word.length-1))) {
+            word = word.substr(0, word.length-1);
+        }
+        // https://github.com/documentcloud/underscore/blob/master/underscore.js#L979
+        word = parseFloat(word);
+        return isFinite(word) && !isNaN(toString.call(word) == '[object Number]' && word != + word);
     }
 
     function isWhitespace(char) {
@@ -71,6 +91,24 @@
         }
     }
 
+    function getReplacingNumber(word) {
+        var newWord = word.replace(/[^\d]/g, '');
+        //get word length
+        var len = newWord.length;
+        //add randomness to word length
+        len += Math.floor(Math.random()*4)-2;
+        len = Math.max(len, 1);
+        newWord = Math.floor(Math.random() * Math.pow(10,len));
+        //replace prefix/suffix
+        if (isNumericPreSuffix(word.charAt(0))) {
+            newWord = word.charAt(0) + newWord;
+        }
+        if (isNumericPreSuffix(word.charAt(word.length-1))) {
+            newWord += word.charAt(word.length-1);
+        }
+        return newWord;
+    }
+
     function getReplacingWord(word) {
         var len = word.length;
         var newChars = [];
@@ -84,7 +122,11 @@
         var words = text.split(" ");
 
         for(var i=0; i<words.length; i++) {
-            words[i] = getReplacingWord(words[i]);
+            if (isNumeric(words[i])) {
+                words[i] = getReplacingNumber(words[i]);
+            } else {
+                words[i] = getReplacingWord(words[i]);
+            }
         }
 
         return words.join(" ");
@@ -118,8 +160,8 @@
 
 
 
-	
-	
+
+
     /**
      * Obfuscates a target selection.
      *
@@ -132,25 +174,25 @@
 		{
             target = "body";
         }
-		
+
 		// If the user has specified one or more styles to apply
 		if(typeof(stylesArray)=="object")
 		{
 			// obtain the correct venbdor prefix for the browser we're executing in
 			var prefix=getVendorPrefix();
-			
+
 			// if we have a prefix for this browser
 			if(prefix)
 			{
 				// create a test HTML element to verify with (this element will never be added to the DOM)
 				var testElement=document.createElement("div"), res=false;
-				
+
 				// loop through the supplied user style(s)
 				for(var i=0; i<stylesArray.length; i++)
 				{
 					// try applying a non-prefixed style first of all
 					testElement.style[stylesArray[i][0]]=stylesArray[i][1];
-					
+
 					// test whether the non-prefixed style applied successfully (it'll return the style) or not (it'll return nothing)
 					res=testElement.style[stylesArray[i][0]];
 
@@ -175,7 +217,7 @@
 			if(stylesArray)
 			{
 				for(var j=0; j<stylesArray.length; j++)
-				{					
+				{
 					elems[i].style[stylesArray[j][0]]=stylesArray[j][1];
 				}
 			}
@@ -185,12 +227,12 @@
 			}
         }
     }
-	
-	
-	
+
+
+
 	/*
 	 * getVendorPrefix() is taken and only very slightly adapted from http://lea.verou.me/2009/02/find-the-vendor-prefix-of-the-current-browser/ by Lea Verou
-	 * 
+	 *
 	 */
 	function getVendorPrefix()
 	{
@@ -212,15 +254,15 @@
 		// Nothing found so far? Webkit does not enumerate over the CSS properties of the style object.
 		// However (prop in style) returns the correct value, so we'll have to test for
 		// the precence of a specific property
-		if('WebkitOpacity' in someScript.style) 
+		if('WebkitOpacity' in someScript.style)
 			return 'webkit';
-		
+
 		if('KhtmlOpacity' in someScript.style)
 			return 'khtml';
 
 		return '';
 	}
-	
+
 	/*
 	 * ucfirst taken directly from http://phpjs.org/functions/ucfirst/ credits below
 	 */
@@ -236,8 +278,8 @@
 		var f = str.charAt(0).toUpperCase();
 		return f + str.substr(1);
 	}
-	
-	
+
+
     // export
     if(window) {
         window.obfuscate = obfuscate;
