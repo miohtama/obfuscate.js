@@ -23,7 +23,7 @@ screenshots easier.
 Usage
 ---------------
 
-Obfuscate.js can walk through the whole page (``<body>``) or arbitary bit chosen by CSS selectors.
+Obfuscate.js can walk through the whole page (``<body>``) or arbitrary bit chosen by CSS selectors.
 
 Open the page with sensitive information in your web browser.
 
@@ -66,7 +66,7 @@ Amend via styling (blur and setting font colour red)::
 Other
 ------
 
-* There is some heurestics to keep the text similar looking to the original text i.e.
+* There is some heuristics to keep the text similar looking to the original text i.e.
   retaining all whitespaces and punctuation in place
 
 * It's vanilla Javascript
@@ -88,7 +88,7 @@ Authors
 
 `Neil Craig <http://www.thedotproduct.org>`_ (`Twitter <http://twitter.com/tdp_org>`_) (amendments to allow CSS styles)
 
-`Tal Alter <https://github.com/TalAterg>`_ (hiding number lengths)
+`Tal Ater <https://github.com/TalAter>`_ (hiding number lengths)
 
 
 Credits
