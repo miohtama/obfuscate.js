@@ -58,7 +58,7 @@ Or simply obfuscate all text the whole web page::
 
 
 Amend via styling (blur and setting font colour red)::
-	obfuscate("a", [["filter","blur(1em)"],["color","red"]);
+	obfuscate("a", [["filter","blur(1em)"],["color","red"]]);
 
 .. image :: https://raw.github.com/neilstuartcraig/obfuscate.js/master/media/obfuscate-blur1.png
     :width: 500px
